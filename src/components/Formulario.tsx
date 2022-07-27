@@ -1,7 +1,7 @@
 export default function Formulario() {
     return (
         <>
-            <div className={`border border-primary rounded-4 p-5 m-5 shadow-lg`}>
+            <div className={`border border-light rounded-4 p-5 m-5 shadow-lg bg-light`}>
                 <form className="row g-3">
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
