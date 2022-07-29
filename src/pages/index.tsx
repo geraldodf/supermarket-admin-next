@@ -3,19 +3,28 @@ import MenuLateral from './../components/MenuLateral'
 import Formulario from "../components/Formulario";
 import Cabecalho from "../components/Cabecalho";
 import TabelaProdutos from "../components/TabelaProdutos";
-import React, {useEffect, useState} from "react";
+import {useState} from "react";
 
 export default function Home() {
+
+    const [tela, setTela] = useState('tabela')
+
+    function mostrarFormAddProduto(tela: string) {
+        setTela(tela)
+    }
 
     return (
         <>
             <div className={``}>
                 <main className={`d-flex`}>
-                    <MenuLateral></MenuLateral>
+                    <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
                     <div>
                         <Cabecalho></Cabecalho>
-                        <TabelaProdutos></TabelaProdutos>
-                        <Formulario></Formulario>
+                        {tela == 'tabela' ? (
+                            <TabelaProdutos></TabelaProdutos>
+                        ) :  (
+                            <Formulario></Formulario>
+                        )}
                     </div>
                 </main>
             </div>
