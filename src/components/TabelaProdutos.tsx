@@ -1,7 +1,7 @@
 export default function TabelaProdutos() {
     return (
         <>
-            <div className={`border-light`}>
+            <div className={`p-3`}>
                 <table className="table table-striped table-dark border-light shadow">
                     <thead>
                     <tr className={`fw-bold`}>
@@ -10,6 +10,7 @@ export default function TabelaProdutos() {
                         <th scope="col">Preço</th>
                         <th scope="col">Quantidade</th>
                         <th scope="col">Seção Do Produto</th>
+                        <th scope="col">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -19,6 +20,10 @@ export default function TabelaProdutos() {
                         <td>2.99</td>
                         <td>89</td>
                         <td>Grãos</td>
+                        <td>
+                            <button className={`btn btn-primary `}> +</button>
+                            <button className={`btn btn-primary`}> -</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>Queijo</td>

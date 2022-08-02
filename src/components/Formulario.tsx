@@ -24,7 +24,7 @@ export default function Formulario() {
                         <input type="number" className="form-control" id="inputQuantidade"/>
                     </div>
                     <div className="col-md-4">
-                        <label htmlFor="" className="form-label">State</label>
+                        <label htmlFor="" className="form-label">Seção</label>
                         <select id="inputState" className="form-select">
                             <option selected>Selecione a seção do produto</option>
                             <option>Grãos</option>

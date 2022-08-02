@@ -15,19 +15,17 @@ export default function Home() {
 
     return (
         <>
-            <div className={``}>
-                <main className={`d-flex`}>
-                    <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
-                    <div>
-                        <Cabecalho></Cabecalho>
-                        {tela == 'tabela' ? (
-                            <TabelaProdutos></TabelaProdutos>
-                        ) :  (
-                            <Formulario></Formulario>
-                        )}
-                    </div>
-                </main>
-            </div>
+            <main className={`d-flex`}>
+                <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
+                <div className={`container-fluid`} style={{padding: "0px 0px"}}>
+                    <Cabecalho></Cabecalho>
+                    {tela == 'tabela' ? (
+                        <TabelaProdutos></TabelaProdutos>
+                    ) : (
+                        <Formulario></Formulario>
+                    )}
+                </div>
+            </main>
         </>
     )
 }

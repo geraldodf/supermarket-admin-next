@@ -10,7 +10,6 @@ export default function MenuLateral(props: MenuLateralProps) {
     return (
 
         <>
-
             <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style={{width: "280px", height: "100%"}}>
                 <Link href={`/`}
                       className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -22,7 +21,7 @@ export default function MenuLateral(props: MenuLateralProps) {
                 </Link>
                 <hr/>
                 <ul className="nav nav-pills flex-column mb-auto">
-                    <li className="nav-item" onClick={() => props.escolherTela('tabela')}>
+                    <li className="nav-item nav-link active" onClick={() => props.escolherTela('tabela')}>
                         <a href="#" className="nav-link text-white" aria-current="page">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
@@ -30,14 +29,14 @@ export default function MenuLateral(props: MenuLateralProps) {
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-link text-white">
+                        <a href="#" className="nav-item nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
                             Painel
                         </a>
                     </li>
                     <li onClick={() => props.escolherTela('formulario')}>
-                        <a href="#" className="nav-link text-white">
+                        <a href="#" className="nav-item nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
                             Cadastrar Produtos
