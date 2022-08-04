@@ -1,3 +1,7 @@
+import {faTrashCan, faPenToSquare, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {right} from "@popperjs/core";
+
 export default function TabelaProdutos() {
     return (
         <>
@@ -20,9 +24,9 @@ export default function TabelaProdutos() {
                         <td>2.99</td>
                         <td>89</td>
                         <td>Grãos</td>
-                        <td>
-                            <button className={`btn btn-primary `}> +</button>
-                            <button className={`btn btn-primary`}> -</button>
+                        <td className={``}>
+                            <FontAwesomeIcon icon={faPenToSquare}/>
+                            <FontAwesomeIcon icon={faTrashCan}/>
                         </td>
                     </tr>
                     <tr>
@@ -31,6 +35,10 @@ export default function TabelaProdutos() {
                         <td>65.22</td>
                         <td>80</td>
                         <td>Frios</td>
+                        <td>
+                            <FontAwesomeIcon icon={faPenToSquare}/>
+                            <FontAwesomeIcon icon={faTrashCan}/>
+                        </td>
                     </tr>
                     <tr>
                         <td>Bolacha</td>
@@ -38,6 +46,10 @@ export default function TabelaProdutos() {
                         <td>3.59</td>
                         <td>250</td>
                         <td>Bolachas e Biscoitos</td>
+                        <td>
+                            <FontAwesomeIcon icon={faPenToSquare}/>
+                            <FontAwesomeIcon icon={faTrashCan}/>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

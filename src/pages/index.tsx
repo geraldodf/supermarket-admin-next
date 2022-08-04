@@ -4,6 +4,9 @@ import Formulario from "../components/Formulario";
 import Cabecalho from "../components/Cabecalho";
 import TabelaProdutos from "../components/TabelaProdutos";
 import {useState} from "react";
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Home() {
 
@@ -15,6 +18,7 @@ export default function Home() {
 
     return (
         <>
+
             <main className={`d-flex`}>
                 <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
                 <div className={`container-fluid`} style={{padding: "0px 0px"}}>
@@ -25,7 +29,8 @@ export default function Home() {
                         <Formulario></Formulario>
                     )}
                 </div>
-            </main>
+               </main>
+
         </>
     )
 }

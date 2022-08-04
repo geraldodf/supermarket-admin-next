@@ -1,3 +1,6 @@
+import {faBoxesStacked} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 export default function Cabecalho() {
     return (
         <>
@@ -10,7 +13,10 @@ export default function Cabecalho() {
                         </svg>
 
                         <ul className="nav col-lg-auto me-lg-auto  justify-content-center mb-md-0 ">
-                            <li><a href="#" className="nav-link px-2 text-white">Gerenciamento de Estoque</a></li>
+                            <li><a href="#" className="nav-link px-2 text-white">
+                                <FontAwesomeIcon icon={faBoxesStacked}  />
+                                Gerenciamento de Estoque
+                            </a></li>
                         </ul>
 
                         <div className={`d-flex justify-content-end`}>

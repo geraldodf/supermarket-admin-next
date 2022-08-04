@@ -1,4 +1,6 @@
 import Link from "next/link";
+import {faReceipt, faHouse, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface MenuLateralProps {
     escolherTela?: (tela: string) => void
@@ -25,21 +27,21 @@ export default function MenuLateral(props: MenuLateralProps) {
                         <a href="#" className="nav-link text-white" aria-current="page">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
-                            Início
+                            <FontAwesomeIcon icon={faHouse}/> Início
                         </a>
                     </li>
                     <li>
                         <a href="#" className="nav-item nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
-                            Painel
+                            <FontAwesomeIcon icon={faReceipt}/>    Painel
                         </a>
                     </li>
                     <li onClick={() => props.escolherTela('formulario')}>
                         <a href="#" className="nav-item nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
-                            Cadastrar Produtos
+                            <FontAwesomeIcon icon={faPlus} /> Cadastrar Produtos
                         </a>
                     </li>
                 </ul>
