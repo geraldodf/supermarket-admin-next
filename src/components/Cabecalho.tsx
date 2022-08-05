@@ -14,7 +14,7 @@ export default function Cabecalho() {
 
                         <ul className="nav col-lg-auto me-lg-auto  justify-content-center mb-md-0 ">
                             <li><a href="#" className="nav-link px-2 text-white">
-                                <FontAwesomeIcon icon={faBoxesStacked}  />
+                                <FontAwesomeIcon style={{margin: "0 5px"}} icon={faBoxesStacked}  />
                                 Gerenciamento de Estoque
                             </a></li>
                         </ul>

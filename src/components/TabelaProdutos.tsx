@@ -5,55 +5,68 @@ import {right} from "@popperjs/core";
 export default function TabelaProdutos() {
     return (
         <>
-            <div className={`p-3`}>
-                <table className="table table-striped table-dark border-light shadow">
-                    <thead>
-                    <tr className={`fw-bold`}>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Seção Do Produto</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Feijão</td>
-                        <td>48596485</td>
-                        <td>2.99</td>
-                        <td>89</td>
-                        <td>Grãos</td>
-                        <td className={``}>
-                            <FontAwesomeIcon icon={faPenToSquare}/>
-                            <FontAwesomeIcon icon={faTrashCan}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Queijo</td>
-                        <td>655</td>
-                        <td>65.22</td>
-                        <td>80</td>
-                        <td>Frios</td>
-                        <td>
-                            <FontAwesomeIcon icon={faPenToSquare}/>
-                            <FontAwesomeIcon icon={faTrashCan}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bolacha</td>
-                        <td>5655</td>
-                        <td>3.59</td>
-                        <td>250</td>
-                        <td>Bolachas e Biscoitos</td>
-                        <td>
-                            <FontAwesomeIcon icon={faPenToSquare}/>
-                            <FontAwesomeIcon icon={faTrashCan}/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+
+            <table style={{border: "1px solid #ffffff !important"}}
+                   className="table-responsive  table  table-striped table-dark">
+                <thead>
+                <tr className={`fw-bold`}>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Seção Do Produto</th>
+                    <th className={`col-1`} scope="col">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Feijão</td>
+                    <td>48596485</td>
+                    <td>2.99</td>
+                    <td>89</td>
+                    <td>Grãos</td>
+                    <td className={``}>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}/>
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Feijão</td>
+                    <td>48596485</td>
+                    <td>2.99</td>
+                    <td>89</td>
+                    <td>Grãos</td>
+                    <td className={``}>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}/>
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}/>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>Feijão</td>
+                    <td>48596485</td>
+                    <td>2.99</td>
+                    <td>89</td>
+                    <td>Grãos</td>
+                    <td className={``}>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}/>
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Feijão</td>
+                    <td>48596485</td>
+                    <td>2.99</td>
+                    <td>89</td>
+                    <td>Grãos</td>
+                    <td className={``}>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}/>
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}/>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
         </>
     )
 }
