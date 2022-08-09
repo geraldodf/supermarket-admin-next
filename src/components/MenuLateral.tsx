@@ -23,25 +23,25 @@ export default function MenuLateral(props: MenuLateralProps) {
                 </Link>
                 <hr/>
                 <ul className="nav nav-pills flex-column mb-auto">
-                    <li className="nav-item nav-link active" onClick={() => props.escolherTela('tabela')}>
-                        <a href="#" className="nav-link text-white" aria-current="page">
+                    <li onClick={() => props.escolherTela('tabela')}>
+                        <a href="#" className="nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
                             <FontAwesomeIcon icon={faHouse}/> Início
                         </a>
                     </li>
                     <li>
-                        <a href="#" className="nav-item nav-link text-white">
+                        <a href="#" className="nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
-                            <FontAwesomeIcon icon={faReceipt}/>    Painel
+                            <FontAwesomeIcon icon={faReceipt}/> Painel
                         </a>
                     </li>
                     <li onClick={() => props.escolherTela('formulario')}>
                         <a href="#" className="nav-item nav-link text-white">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
-                            <FontAwesomeIcon icon={faPlus} /> Cadastrar Produtos
+                            <FontAwesomeIcon icon={faPlus}/> Cadastrar Produtos
                         </a>
                     </li>
                 </ul>
