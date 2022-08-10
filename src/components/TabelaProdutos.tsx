@@ -1,7 +1,12 @@
 import {faTrashCan, faPenToSquare, faPlus} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default function TabelaProdutos() {
+interface TabelaProps{
+    produtos: any[]
+}
+
+
+export default function TabelaProdutos(props: TabelaProps) {
     return (
         <>
             <div className={`p-1`}>

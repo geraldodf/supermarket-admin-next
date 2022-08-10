@@ -24,7 +24,7 @@ export default function Home() {
                 <div className={`container-fluid`} style={{padding: "0px 0px"}}>
                     <Cabecalho></Cabecalho>
                     {tela == 'tabela' ? (
-                        <TabelaProdutos></TabelaProdutos>
+                        <TabelaProdutos produtos={null}></TabelaProdutos>
                     ) : (
                         <Formulario></Formulario>
                     )}
