@@ -7,6 +7,7 @@ import {useState} from "react";
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Inicio from "../components/Home";
 
 export default function Home() {
 
@@ -25,8 +26,10 @@ export default function Home() {
                     <Cabecalho></Cabecalho>
                     {tela == 'tabela' ? (
                         <TabelaProdutos produtos={null}></TabelaProdutos>
-                    ) : (
+                    ) : tela == 'formulario' ? (
                         <Formulario></Formulario>
+                    ) : (
+                        <Inicio></Inicio>
                     )}
                 </div>
                </main>
