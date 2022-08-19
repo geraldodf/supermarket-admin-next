@@ -63,13 +63,13 @@ export default function Formulario() {
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Quantidade</label>
-                        <input type="number" value={quantidade} onChange={e => setQuantidade(e.target.value) }
+                        <input type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)}
                                className="form-control" id="inputQuantidade"/>
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Seção</label>
                         <select id="inputState" className="form-select"
-                                onChange={e => setTipoProduto(tiposDosProdutos[e.target.value]) }>
+                                onChange={e => setTipoProduto(tiposDosProdutos[e.target.value])}>
                             <option selected>Selecione a seção do produto</option>
                             <option>Grãos</option>
                             <option>Hortifruti</option>
@@ -81,7 +81,6 @@ export default function Formulario() {
                     </div>
                     <div className="col-12">
                         <button type="submit" className="btn btn-primary" onClick={criarProduto}>Confimar Cadastro
-
                         </button>
                     </div>
                 </form>

@@ -8,6 +8,14 @@ export default function TabelaProdutos() {
     const [produtos, setProdutos] = useState([])
 
     const baseUrl = "http://localhost:8080/api/"
+
+    function exluirProduto(id: number){
+        axios({
+            url:`${baseUrl}produtos/${id}`,
+            method: "DELETE"
+        })
+    }
+
     useEffect(() => {
         async function getProdutos() {
             const response = await axios({
@@ -16,7 +24,6 @@ export default function TabelaProdutos() {
                 responseType: "json"
 
             })
-            console.log(response.data)
             setProdutos(response.data);
         }
 
@@ -27,15 +34,15 @@ export default function TabelaProdutos() {
     function renderizarProdutos() {
         return produtos?.map((p) => {
             return (
-                <tr key={p.idTipoDoProduto}>
+                <tr key={p.id}>
                     <td>{p.descricao}</td>
                     <td>{p.codigo}</td>
                     <td>{p.precoDeVenda}</td>
                     <td>{p.quantidade}</td>
                     <td>{p.tipoDoProduto.nomeTipoDoProduto}</td>
                     <td>
-                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}/>
-                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}/>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare} />
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan} onClick={ e => exluirProduto(p.id)}/>
                     </td>
                 </tr>
             )
