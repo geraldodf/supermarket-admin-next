@@ -1,4 +1,4 @@
-import {faTrashCan, faPenToSquare, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faTrashCan, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import {useEffect, useState} from "react";
@@ -51,8 +51,8 @@ export default function TabelaProdutos() {
 
     return (
         <>
-            <div className={`p-1`}>
-                <table className="table-responsive  table table-hover table-striped table-dark">
+            <div className={`p-1 overflow-scroll p-5`} style={{height: "100%"}}>
+                <table className="table-responsive table table-hover table-striped table-light">
                     <thead>
                     <tr className={`fw-bold`}>
                         <th scope="col">Descrição</th>

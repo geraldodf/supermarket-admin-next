@@ -5,7 +5,7 @@ export default function Cabecalho() {
     return (
         <>
 
-            <header className="p-3 bg-dark text-white ">
+            <header className="p-3 bg-light text-black ">
                 <div className="container">
                     <div
                         className="d-flex align-items-center justify-content-center justify-content-lg-start">
@@ -13,7 +13,7 @@ export default function Cabecalho() {
                         </svg>
 
                         <ul className="nav col-lg-auto me-lg-auto  justify-content-center mb-md-0 ">
-                            <li><a href="#" className="nav-link px-2 text-white">
+                            <li><a href="#" className="nav-link px-2 text-black">
                                 <FontAwesomeIcon style={{margin: "0 5px"}} icon={faBoxesStacked}/>
                                 Gerenciamento de Estoque
                             </a></li>

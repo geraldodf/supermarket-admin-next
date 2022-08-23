@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {right} from "@popperjs/core";
 
 
 export default function Formulario() {
@@ -39,8 +40,8 @@ export default function Formulario() {
 
     return (
         <>
-            <div className={`rounded-4 p-5 m-5 shadow-lg bg-light`}>
-                <form className="row g-3">
+            <div className={`rounded-4 p-4 m-5 shadow-lg bg-light`} >
+                <form className="row g-3" style={{marginRight: "4rem !important"}}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
                         <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)}
