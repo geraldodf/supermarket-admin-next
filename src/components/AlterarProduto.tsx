@@ -1,9 +1,8 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
-import {right} from "@popperjs/core";
 
 
-export default function Formulario() {
+export default function AlterarProduto() {
 
     const tiposDosProdutos = {
         "Grãos": 1,
@@ -31,10 +30,10 @@ export default function Formulario() {
 
     const baseUrl = "http://localhost:8080/api/"
 
-    async function criarProduto() {
+    async function atualizarProduto() {
         await axios({
             url: `${baseUrl}produtos`,
-            method: "post",
+            method: "put",
             data: {
                 descricao,
                 codigo: +codigo,
@@ -46,13 +45,17 @@ export default function Formulario() {
         })
     }
 
+
     return (
         <>
-            <div className={`rounded-4 p-4 m-5 shadow-lg bg-light`} >
+
+            <div className={`rounded-4 p-4 m-5 shadow-lg bg-light justify-content-center`}><h3
+                className={`text-center p-3`}>Alteração de Produto</h3>
                 <form className="row g-3" style={{marginRight: "4rem !important"}}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
-                        <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)}
+                        <input type="text" value={descricao} placeholder={descricao}
+                               onChange={e => setDescricao(e.target.value)}
                                className="form-control" id="inputDescricao"/>
                     </div>
                     <div className="col-md-6">
@@ -97,7 +100,7 @@ export default function Formulario() {
                         </select>
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary" onClick={criarProduto}>Confimar Cadastro
+                        <button type="submit" className="btn btn-primary " onClick={atualizarProduto}>Confimar Cadastro
                         </button>
                     </div>
                 </form>

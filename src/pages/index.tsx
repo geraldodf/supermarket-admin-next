@@ -3,6 +3,7 @@ import MenuLateral from './../components/MenuLateral'
 import Formulario from "../components/Formulario";
 import Cabecalho from "../components/Cabecalho";
 import TabelaProdutos from "../components/TabelaProdutos";
+import AlterarProduto from "../components/AlterarProduto";
 import {useState} from "react";
 import Inicio from "../components/Inicio";
 
@@ -27,6 +28,9 @@ export default function Home() {
                     )}
                 </div>
             </main>
+           {/*<div>*/}
+           {/*    <AlterarProduto></AlterarProduto>*/}
+           {/*</div>*/}
         </>
     )
 }
