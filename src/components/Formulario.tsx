@@ -36,7 +36,7 @@ export default function Formulario() {
             url: `${baseUrl}produtos`,
             method: "post",
             data: {
-                descricao,
+                descricao: descricao,
                 codigo: +codigo,
                 precoDeCompra: +precoDeCompra,
                 precoDeVenda: +precoDeVenda,

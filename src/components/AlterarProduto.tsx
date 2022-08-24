@@ -1,8 +1,9 @@
 import {useState} from "react";
 import axios from "axios";
+import Produto from "../core/Produto";
 
 
-export default function AlterarProduto() {
+export default function AlterarProduto(produto: Produto) {
 
     const tiposDosProdutos = {
         "Grãos": 1,
@@ -35,7 +36,7 @@ export default function AlterarProduto() {
             url: `${baseUrl}produtos`,
             method: "put",
             data: {
-                descricao,
+                descricao: descricao,
                 codigo: +codigo,
                 precoDeCompra: +precoDeCompra,
                 precoDeVenda: +precoDeVenda,
@@ -45,37 +46,37 @@ export default function AlterarProduto() {
         })
     }
 
-
     return (
         <>
-
             <div className={`rounded-4 p-4 m-5 shadow-lg bg-light justify-content-center`}><h3
                 className={`text-center p-3`}>Alteração de Produto</h3>
                 <form className="row g-3" style={{marginRight: "4rem !important"}}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
-                        <input type="text" value={descricao} placeholder={descricao}
+                        <input type="text" value={produto.descricao}
                                onChange={e => setDescricao(e.target.value)}
                                className="form-control" id="inputDescricao"/>
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Código</label>
-                        <input type="text" value={codigo} onChange={e => setCodigo(e.target.value)}
+                        <input type="text" value={produto.codigo} onChange={e => setCodigo(e.target.value)}
                                className="form-control" id="inputCodigo"/>
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Compra</label>
-                        <input type="number" value={precoDeCompra} onChange={e => setPrecoDeCompra(e.target.value)}
+                        <input type="number" value={produto.precoDeCompra}
+                               onChange={e => setPrecoDeCompra(e.target.value)}
                                className="form-control" id="inputPrecoCompra"/>
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Venda</label>
-                        <input type="number" value={precoDeVenda} onChange={e => setPrecoDeVenda(e.target.value)}
+                        <input type="number" value={produto.precoDeVenda}
+                               onChange={e => setPrecoDeVenda(e.target.value)}
                                className="form-control" id="inputPrecoVenda"/>
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Quantidade</label>
-                        <input type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)}
+                        <input type="number" value={produto.quantidade} onChange={e => setQuantidade(e.target.value)}
                                className="form-control" id="inputQuantidade"/>
                     </div>
                     <div className="col-md-4">
@@ -105,8 +106,6 @@ export default function AlterarProduto() {
                     </div>
                 </form>
             </div>
-
         </>
     )
-
 }
