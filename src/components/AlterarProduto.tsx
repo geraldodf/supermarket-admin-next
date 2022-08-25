@@ -2,8 +2,18 @@ import {useState} from "react";
 import axios from "axios";
 import Produto from "../core/Produto";
 
+interface ProdutoProps {
+    id?: number
+    descricao?: string
+    codigo?: number
+    precoDeCompra?: number
+    precoDeVenda?: number
+    quantidade?: number
+    tipoDoProduto?: number
+}
 
-export default function AlterarProduto(produto: Produto) {
+
+export default function AlterarProduto(produto?: ProdutoProps) {
 
     const tiposDosProdutos = {
         "Grãos": 1,
@@ -48,13 +58,12 @@ export default function AlterarProduto(produto: Produto) {
 
     return (
         <>
-            <div className={`rounded-4 p-4 m-5 shadow-lg bg-light justify-content-center`}><h3
-                className={`text-center p-3`}>Alteração de Produto</h3>
+            <div className={`rounded-4 p-4 m-5 shadow-lg bg-light justify-content-center`}>
+                <h3 className={`text-center p-3`}>Alterar de Produto</h3>
                 <form className="row g-3" style={{marginRight: "4rem !important"}}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
-                        <input type="text" value={produto.descricao}
-                               onChange={e => setDescricao(e.target.value)}
+                        <input type="text" value={produto.descricao} onChange={e => setDescricao(e.target.value)}
                                className="form-control" id="inputDescricao"/>
                     </div>
                     <div className="col-md-6">

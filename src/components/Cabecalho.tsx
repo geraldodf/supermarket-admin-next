@@ -1,10 +1,29 @@
 import {faBoxesStacked} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export default function Cabecalho() {
+
+    const [produtos, setProdutos] = useState([])
+    const [descricao, setDescricao] = useState('')
+
+    const baseUrl = "http://localhost:8080/api/"
+
+    async function getProdutosPorDescricao() {
+        console.log("Entrou fi")
+        const response = await axios({
+            url: `${baseUrl}produtos/pesquisa-por-descricao?descricao=${descricao}`,
+            method: "get",
+            responseType: "json"
+        })
+        setProdutos(response.data);
+        console.log(produtos)
+        console.log("Chegou aqui")
+    }
+
     return (
         <>
-
             <header className="p-3 bg-light text-black ">
                 <div className="container">
                     <div
@@ -22,7 +41,8 @@ export default function Cabecalho() {
                         <div className={`d-flex justify-content-end`}>
                             <form className=" col-5 mb-3 mb-lg-0 me-lg-3">
                                 <input type="search" className="form-control form-control-dark"
-                                       placeholder="Pesquisar por Descrição"
+                                       placeholder="Pesquisar por Descrição" value={descricao}
+                                       onChange={e => setDescricao(e.target.value)}
                                        aria-label="Search"/>
                             </form>
                             <form className=" col-3 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -31,7 +51,9 @@ export default function Cabecalho() {
                                        aria-label="Search"/>
                             </form>
                             <div className=" col-3">
-                                <button type="submit" className="btn btn-primary">Pesquisar</button>
+                                <button type="button" className="btn btn-primary"
+                                        onClick={() => getProdutosPorDescricao}>Pesquisar
+                                </button>
                             </div>
                         </div>
                     </div>

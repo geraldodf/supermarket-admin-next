@@ -3,15 +3,19 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import {useEffect, useState} from "react";
 
+interface TabelaProdutosProps {
+    escolherTela?: (tela: string) => void
+}
 
-export default function TabelaProdutos() {
+
+export default function TabelaProduto(props: TabelaProdutosProps) {
     const [produtos, setProdutos] = useState([])
 
     const baseUrl = "http://localhost:8080/api/"
 
-    function exluirProduto(id: number){
+    function exluirProduto(id: number) {
         axios({
-            url:`${baseUrl}produtos/${id}`,
+            url: `${baseUrl}produtos/${id}`,
             method: "DELETE"
         })
     }
@@ -41,8 +45,10 @@ export default function TabelaProdutos() {
                     <td>{p.quantidade}</td>
                     <td>{p.tipoDoProduto.nomeTipoDoProduto}</td>
                     <td>
-                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare} />
-                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan} onClick={ e => exluirProduto(p.id)}/>
+                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}
+                                         onClick={() => props.escolherTela('alterarProduto')}/>
+                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}
+                                         onClick={() => exluirProduto(p.id)}/>
                     </td>
                 </tr>
             )
@@ -65,8 +71,6 @@ export default function TabelaProdutos() {
                     </thead>
                     <tbody>
                     {renderizarProdutos()}
-
-
                     </tbody>
                 </table>
             </div>

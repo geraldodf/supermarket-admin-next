@@ -49,6 +49,7 @@ export default function Formulario() {
     return (
         <>
             <div className={`rounded-4 p-4 m-5 shadow-lg bg-light`} >
+                <h3 className={`text-center p-3`}>Cadastrar de Produto</h3>
                 <form className="row g-3" style={{marginRight: "4rem !important"}}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
