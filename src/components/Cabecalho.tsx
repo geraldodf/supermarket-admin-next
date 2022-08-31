@@ -11,7 +11,7 @@ export default function Cabecalho() {
     const baseUrl = "http://localhost:8080/api/"
 
     async function getProdutosPorDescricao() {
-        console.log("Entrou fi")
+        console.log("Entrou aqui")
         const response = await axios({
             url: `${baseUrl}produtos/pesquisa-por-descricao?descricao=${descricao}`,
             method: "get",

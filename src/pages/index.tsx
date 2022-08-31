@@ -10,8 +10,15 @@ import Inicio from "../components/Inicio";
 export default function Home() {
     const [tela, setTela] = useState('tabela')
 
-    function mostrarFormAddProduto(tela: string) {
+    const [produtoParaEdicao, setProdutoParaEdicao] = useState({})
+
+    function mostrarFormAddProduto(tela: string, produto: any = {}) {
         setTela(tela)
+        produto && alterarTelaEProduto(produto)
+    }
+
+    function alterarTelaEProduto(produto: any) {
+        setProdutoParaEdicao(produto)
     }
 
     return (
@@ -25,8 +32,8 @@ export default function Home() {
                     ) : tela == 'formulario' ? (
                         <Formulario></Formulario>
                     ) : tela == 'alterarProduto' ? (
-                        <AlterarProduto></AlterarProduto>
-                    ): (
+                        <AlterarProduto produtoRecebido={produtoParaEdicao}></AlterarProduto>
+                    ) : (
                         <Inicio></Inicio>
                     )}
                 </div>

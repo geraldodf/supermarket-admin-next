@@ -4,21 +4,23 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 
 interface TabelaProdutosProps {
-    escolherTela?: (tela: string) => void
+    escolherTela?: (tela: string, produto: any) => void
 }
 
-
 export default function TabelaProduto(props: TabelaProdutosProps) {
+
     const [produtos, setProdutos] = useState([])
 
     const baseUrl = "http://localhost:8080/api/"
 
-    function exluirProduto(id: number) {
+    function exluirProduto(produtoExcluidoId: number) {
+        setProdutos(produtos.filter(p => p.id != produtoExcluidoId))
         axios({
-            url: `${baseUrl}produtos/${id}`,
+            url: `${baseUrl}produtos/${produtoExcluidoId}`,
             method: "DELETE"
         })
     }
+
 
     useEffect(() => {
         async function getProdutos() {
@@ -46,7 +48,7 @@ export default function TabelaProduto(props: TabelaProdutosProps) {
                     <td>{p.tipoDoProduto.nomeTipoDoProduto}</td>
                     <td>
                         <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}
-                                         onClick={() => props.escolherTela('alterarProduto')}/>
+                                         onClick={() => props.escolherTela('alterarProduto', p)}/>
                         <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}
                                          onClick={() => exluirProduto(p.id)}/>
                     </td>
