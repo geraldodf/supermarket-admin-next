@@ -4,7 +4,7 @@ import Formulario from "../components/Formulario";
 import Cabecalho from "../components/Cabecalho";
 import TabelaProduto from "../components/TabelaProduto";
 import AlterarProduto from "../components/AlterarProduto";
-import {useState} from "react";
+import { useState } from "react";
 import Inicio from "../components/Inicio";
 
 export default function Home() {
@@ -25,14 +25,15 @@ export default function Home() {
         <>
             <main className={`d-flex bg-light`} data-spy={'scroll'}>
                 <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
-                <div className={`container-fluid `} style={{padding: "0px 0px"}}>
+                <div className={`container-fluid `} style={{ padding: "0px 0px" }}>
                     <Cabecalho></Cabecalho>
                     {tela == 'tabela' ? (
                         <TabelaProduto escolherTela={mostrarFormAddProduto}></TabelaProduto>
                     ) : tela == 'formulario' ? (
-                        <Formulario></Formulario>
+                        <Formulario titulo='Cadastrar Produto'></Formulario>
                     ) : tela == 'alterarProduto' ? (
-                        <AlterarProduto produtoRecebido={produtoParaEdicao}></AlterarProduto>
+                        // <AlterarProduto produtoRecebido={produtoParaEdicao}></AlterarProduto>
+                        <Formulario titulo='Alterar Produto' produtoRecebido={produtoParaEdicao} />
                     ) : (
                         <Inicio></Inicio>
                     )}

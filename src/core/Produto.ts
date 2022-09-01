@@ -1,66 +1,75 @@
-export default class Produto {
-    #id: number
-    #descricao: string
-    #codigo: number
-    #precoDeCompra: number
-    #precoDeVenda: number
-    #quantidade: number
-    #tipoDoProduto: number
+interface ProdutoProps {
+    id?: number
+    descricao?: string
+    codigo?: number
+    precoDeCompra?: number
+    precoDeVenda?: number
+    quantidade?: number
+    tipoDoProduto?: number
 
+}
+
+export default class Produto {
+
+    private _props: ProdutoProps
+
+    constructor(props: ProdutoProps) {
+        this._props = props;
+    }
 
     get id(): number {
-        return this.#id;
+        return this._props.id;
     }
 
     set id(value: number) {
-        this.#id = value;
+        this._props.id = value;
     }
 
     get descricao(): string {
-        return this.#descricao;
+        return this._props.descricao;
     }
 
     set descricao(value: string) {
-        this.#descricao = value;
+        this._props.descricao = value;
     }
 
     get codigo(): number {
-        return this.#codigo;
+        return this._props.codigo;
     }
 
     set codigo(value: number) {
-        this.#codigo = value;
+        this._props.codigo = value;
     }
 
     get precoDeCompra(): number {
-        return this.#precoDeCompra;
+        return this._props.precoDeCompra;
     }
 
     set precoDeCompra(value: number) {
-        this.#precoDeCompra = value;
+        this._props.precoDeCompra = value;
     }
 
     get precoDeVenda(): number {
-        return this.#precoDeVenda;
+        return this._props.precoDeVenda;
     }
 
     set precoDeVenda(value: number) {
-        this.#precoDeVenda = value;
+        this._props.precoDeVenda = value;
     }
 
     get quantidade(): number {
-        return this.#quantidade;
+        return this._props.quantidade;
     }
 
     set quantidade(value: number) {
-        this.#quantidade = value;
+        this._props.quantidade = value;
     }
 
     get tipoDoProduto(): number {
-        return this.#tipoDoProduto;
+        return this._props.tipoDoProduto;
     }
 
     set tipoDoProduto(value: number) {
-        this.#tipoDoProduto = value;
+        this._props.tipoDoProduto = value;
     }
 }

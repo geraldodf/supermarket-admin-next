@@ -1,9 +1,13 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {right} from "@popperjs/core";
 
 
-export default function Formulario() {
+interface FormularioProps {
+    titulo: string
+    produtoRecebido?: any
+}
+
+export default function Formulario({ titulo, produtoRecebido }: FormularioProps) {
 
     const tiposDosProdutos = {
         "Grãos": 1,
@@ -22,26 +26,26 @@ export default function Formulario() {
         "Outros": 19
     }
 
-    const [descricao, setDescricao] = useState('')
-    const [codigo, setCodigo] = useState('')
-    const [precoDeCompra, setPrecoDeCompra] = useState('')
-    const [precoDeVenda, setPrecoDeVenda] = useState('')
-    const [quantidade, setQuantidade] = useState('')
-    const [tipoProduto, setTipoProduto] = useState('')
+
+    const [produto, setProduto] = useState<any>({})
+    useEffect(() => {
+        produtoRecebido && setProduto(produtoRecebido)
+    }, [produtoRecebido])
 
     const baseUrl = "http://localhost:8080/api/"
 
-    async function criarProduto() {
+    async function criarProdutoOuEditar() {
+        const urlUpdate = `${baseUrl}produtos/${produto.id}`
         await axios({
-            url: `${baseUrl}produtos`,
-            method: "post",
+            url: produtoRecebido?.id ? urlUpdate : `${baseUrl}produtos`,
+            method: produtoRecebido?.id ? "put" : "post",
             data: {
-                descricao: descricao,
-                codigo: +codigo,
-                precoDeCompra: +precoDeCompra,
-                precoDeVenda: +precoDeVenda,
-                quantidade: +quantidade,
-                idTipoDoProduto: +tipoProduto
+                descricao: produto.descricao,
+                codigo: +produto.codigo,
+                precoDeCompra: +produto.precoDeCompra,
+                precoDeVenda: +produto.precoDeVenda,
+                quantidade: +produto.quantidade,
+                idTipoDoProduto: +produto.idTipoDoProduto
             }
         })
     }
@@ -49,37 +53,37 @@ export default function Formulario() {
     return (
         <>
             <div className={`rounded-4 p-4 m-5 shadow-lg bg-light`} >
-                <h3 className={`text-center p-3`}>Cadastrar de Produto</h3>
-                <form className="row g-3" style={{marginRight: "4rem !important"}}>
+                <h3 className={`text-center p-3`}>{titulo}</h3>
+                <form className="row g-3" style={{ marginRight: "4rem !important" }}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
-                        <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)}
-                               className="form-control" id="inputDescricao"/>
+                        <input type="text" value={produto.descricao} onChange={e => setProduto({ ...produto, descricao: e.target.value })}
+                            className="form-control" id="inputDescricao" />
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Código</label>
-                        <input type="text" value={codigo} onChange={e => setCodigo(e.target.value)}
-                               className="form-control" id="inputCodigo"/>
+                        <input type="text" value={produto.codigo} onChange={e => setProduto({ ...produto, codigo: e.target.value })}
+                            className="form-control" id="inputCodigo" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Compra</label>
-                        <input type="number" value={precoDeCompra} onChange={e => setPrecoDeCompra(e.target.value)}
-                               className="form-control" id="inputPrecoCompra"/>
+                        <input type="number" value={produto.precoDeCompra} onChange={e => setProduto({ ...produto, precoDeCompra: e.target.value })}
+                            className="form-control" id="inputPrecoCompra" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Venda</label>
-                        <input type="number" value={precoDeVenda} onChange={e => setPrecoDeVenda(e.target.value)}
-                               className="form-control" id="inputPrecoVenda"/>
+                        <input type="number" value={produto.precoDeVenda} onChange={e => setProduto({ ...produto, precoDeVenda: e.target.value })}
+                            className="form-control" id="inputPrecoVenda" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Quantidade</label>
-                        <input type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)}
-                               className="form-control" id="inputQuantidade"/>
+                        <input type="number" value={produto.quantidade} onChange={e => setProduto({ ...produto, quantidade: e.target.value })}
+                            className="form-control" id="inputQuantidade" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Seção</label>
                         <select id="inputState" className="form-select"
-                                onChange={e => setTipoProduto(tiposDosProdutos[e.target.value])}>
+                            onChange={e => setProduto({ ...produto, idTipoDoProduto: tiposDosProdutos[e.target.value] })}>
                             <option selected>Selecione a seção do produto</option>
                             <option>Grãos</option>
                             <option>Doces</option>
@@ -98,7 +102,7 @@ export default function Formulario() {
                         </select>
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary" onClick={criarProduto}>Confimar Cadastro
+                        <button type="submit" className="btn btn-primary" onClick={criarProdutoOuEditar}>Confimar Cadastro
                         </button>
                     </div>
                 </form>
