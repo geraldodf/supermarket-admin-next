@@ -3,24 +3,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-export default function Cabecalho() {
+interface CabecalhoProps {
+    enviarDescricao?: (descricao: string) => void
+}
 
-    const [produtos, setProdutos] = useState([])
+export default function Cabecalho(props: CabecalhoProps) {
+
     const [descricao, setDescricao] = useState('')
-
-    const baseUrl = "http://localhost:8080/api/"
-
-    async function getProdutosPorDescricao() {
-        console.log("Entrou aqui")
-        const response = await axios({
-            url: `${baseUrl}produtos/pesquisa-por-descricao?descricao=${descricao}`,
-            method: "get",
-            responseType: "json"
-        })
-        setProdutos(response.data);
-        console.log(produtos)
-        console.log("Chegou aqui")
-    }
 
     return (
         <>
@@ -52,9 +41,10 @@ export default function Cabecalho() {
                             </form>
                             <div className=" col-3">
                                 <button type="button" className="btn btn-primary"
-                                        onClick={() => getProdutosPorDescricao}>Pesquisar
+                                        onClick={() => props.enviarDescricao(descricao)}>Pesquisar
                                 </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
