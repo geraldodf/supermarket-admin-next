@@ -47,7 +47,6 @@ export default function TabelaProduto(props: TabelaProdutosProps) {
         getProdutos();
     }, [])
 
-
     function renderizarProdutos() {
         return produtos?.map((p) => {
             return (

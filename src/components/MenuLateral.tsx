@@ -12,7 +12,8 @@ export default function MenuLateral(props: MenuLateralProps) {
     return (
 
         <>
-            <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-light " style={{width: "280px", height: "100%"}}>
+            <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-light "
+                 style={{width: "280px", height: "100%"}}>
                 <Link href={`/`}
                       className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
                     <div>
@@ -23,21 +24,22 @@ export default function MenuLateral(props: MenuLateralProps) {
                 </Link>
                 <hr/>
                 <ul className="nav nav-pills flex-column mb-auto">
-                    <li onClick={() => props.escolherTela('home')}>
+                    <li className={`hoverPrimary`} onClick={() => props.escolherTela('home')}>
                         <a href="#" className="nav-link text-dark">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
                             <FontAwesomeIcon icon={faHouse}/> Início
                         </a>
                     </li>
-                    <li onClick={() => props.escolherTela('tabela')}>
-                        <a href="#" className="nav-link text-dark">
+                    
+                    <li className={`hoverPrimary `} onClick={() => props.escolherTela('tabela')}>
+                        <a href="#" className="nav-link text-dark ">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
                             <FontAwesomeIcon icon={faReceipt}/> Painel Produtos
                         </a>
                     </li>
-                    <li onClick={() => props.escolherTela('formulario')}>
+                    <li className={`hoverPrimary`} onClick={() => props.escolherTela('formulario')}>
                         <a href="#" className="nav-item nav-link text-dark">
                             <svg className="bi pe-none me-2" width="16" height="16">
                             </svg>
