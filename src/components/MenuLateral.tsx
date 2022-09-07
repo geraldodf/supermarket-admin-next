@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {faReceipt, faHouse, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faReceipt, faHouse, faPlus, faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface MenuLateralProps {
@@ -31,7 +31,7 @@ export default function MenuLateral(props: MenuLateralProps) {
                             <FontAwesomeIcon icon={faHouse}/> Início
                         </a>
                     </li>
-                    
+
                     <li className={`hoverPrimary `} onClick={() => props.escolherTela('tabela')}>
                         <a href="#" className="nav-link text-dark ">
                             <svg className="bi pe-none me-2" width="16" height="16">
@@ -49,14 +49,8 @@ export default function MenuLateral(props: MenuLateralProps) {
                 </ul>
                 <hr/>
                 <div className="dropdown">
-                    <a href="#"
-                       className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <img
-                            src={"https://avatars.githubusercontent.com/u/78937716?s=400&u=156f56b487fd56e87663f471dcddb04c1f0d3d56&v=4"}
-                            alt="" width="32" height="32"
-                            className="rounded-circle me-2"/>
-                        <strong>Administrador</strong>
+                    <a href="#" style={{paddingLeft: "40px"}} className={`d-flex align-items-center text-dark text-decoration-none center`}>
+                        <strong> <FontAwesomeIcon icon={faArrowRightFromBracket}/> Sair</strong>
                     </a>
                 </div>
             </div>
