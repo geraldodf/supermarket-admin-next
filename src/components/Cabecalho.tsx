@@ -5,11 +5,13 @@ import axios from "axios";
 
 interface CabecalhoProps {
     enviarDescricao?: (descricao: string) => void
+    enviarCodigo?: (codigo: number) => void
 }
 
 export default function Cabecalho(props: CabecalhoProps) {
 
     const [descricao, setDescricao] = useState('')
+    const [codigo, setcodigo] = useState(0)
 
     return (
         <>
@@ -35,13 +37,20 @@ export default function Cabecalho(props: CabecalhoProps) {
                                        aria-label="Search"/>
                             </form>
                             <form className=" col-3 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                                <input type="search" className="form-control form-control-dark"
-                                       placeholder="Pesquisar por Código"
+                                <input type="number" className="form-control form-control-dark"
+                                       placeholder="Pesquisar por Código" value={codigo}
+                                       onChange={e => setcodigo(+e.target.value)}
                                        aria-label="Search"/>
                             </form>
                             <div className=" col-3">
                                 <button type="button" className="btn btn-primary"
-                                        onClick={() => props.enviarDescricao(descricao)}>Pesquisar
+                                        onClick={() => {
+                                            if (descricao != '') {
+                                                props.enviarDescricao(descricao)
+                                            } else if (codigo != null && codigo != 0) {
+                                                props.enviarCodigo(codigo)
+                                            }
+                                        }}>Pesquisar
                                 </button>
                             </div>
 

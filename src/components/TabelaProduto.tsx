@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 interface TabelaProdutosProps {
     escolherTela?: (tela: string, produto: any) => void
     novaDescricao?: string
+    novoCodigo?: number
 }
 
 export default function TabelaProduto(props: TabelaProdutosProps) {
@@ -23,10 +24,21 @@ export default function TabelaProduto(props: TabelaProdutosProps) {
     }
 
     props.novaDescricao && pegarProdutosPorDescricao(props.novaDescricao)
+    props.novoCodigo && pegarProdutosPorCodigo(props.novoCodigo)
+
 
     async function pegarProdutosPorDescricao(descricao: string) {
         const response = await axios({
             url: `${baseUrl}produtos/pesquisa-por-descricao?descricao=${props.novaDescricao}`,
+            method: "get",
+            responseType: "json"
+        })
+        setProdutos(response.data);
+    }
+
+    async function pegarProdutosPorCodigo(codigo: number) {
+        const response = await axios({
+            url: `${baseUrl}produtos/pesquisa-por-codigo?codigo=${props.novoCodigo}`,
             method: "get",
             responseType: "json"
         })

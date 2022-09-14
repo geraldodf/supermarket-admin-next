@@ -10,6 +10,7 @@ export default function Home() {
     const [tela, setTela] = useState('tabela')
     const [produtoParaEdicao, setProdutoParaEdicao] = useState({})
     const [descricao, setDescricao] = useState('')
+    const [codigo, setCodigo] = useState(null)
 
     function mostrarFormAddProduto(tela: string, produto: any = {}) {
         setTela(tela)
@@ -19,19 +20,21 @@ export default function Home() {
     function filtrarProdutosPorDescricao(descricao: string){
         setDescricao(descricao)
     }
+    function filtrarProdutosPorCodigo(codigo: number){
+        setCodigo(codigo)
+    }
 
     function alterarTelaEProduto(produto: any) {
         setProdutoParaEdicao(produto)
     }
-
     return (
         <>
             <main className={`d-flex bg-light`} data-spy={'scroll'}>
                 <MenuLateral escolherTela={mostrarFormAddProduto}></MenuLateral>
                 <div className={`container-fluid `} style={{padding: "0px 0px"}}>
-                    <Cabecalho enviarDescricao={filtrarProdutosPorDescricao}></Cabecalho>
+                    <Cabecalho enviarDescricao={filtrarProdutosPorDescricao} enviarCodigo={filtrarProdutosPorCodigo}></Cabecalho>
                     {tela == 'tabela' ? (
-                        <TabelaProduto escolherTela={mostrarFormAddProduto} novaDescricao={descricao}></TabelaProduto>
+                        <TabelaProduto escolherTela={mostrarFormAddProduto} novaDescricao={descricao} novoCodigo={codigo}></TabelaProduto>
                     ) : tela == 'formulario' ? (
                         <Formulario titulo='Cadastrar Produto'></Formulario>
                     ) : tela == 'alterarProduto' ? (
