@@ -1,7 +1,7 @@
-import {faTrashCan, faPenToSquare} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faTrashCan, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 interface TabelaProdutosProps {
     escolherTela?: (tela: string, produto: any) => void
@@ -69,10 +69,10 @@ export default function TabelaProduto(props: TabelaProdutosProps) {
                     <td>{p.quantidade}</td>
                     <td>{p.tipoDoProduto.nomeTipoDoProduto}</td>
                     <td>
-                        <FontAwesomeIcon style={{margin: "0 5px"}} icon={faPenToSquare}
-                                         onClick={() => props.escolherTela('alterarProduto', p)}/>
-                        <FontAwesomeIcon style={{margin: "0 8px"}} icon={faTrashCan}
-                                         onClick={() => exluirProduto(p.id)}/>
+                        <FontAwesomeIcon style={{ margin: "0 5px" }} icon={faPenToSquare}
+                            onClick={() => props.escolherTela('alterarProduto', p)} />
+                        <FontAwesomeIcon style={{ margin: "0 8px" }} icon={faTrashCan}
+                            onClick={() => exluirProduto(p.id)} />
                     </td>
                 </tr>
             )
@@ -81,20 +81,20 @@ export default function TabelaProduto(props: TabelaProdutosProps) {
 
     return (
         <>
-            <div className={`p-1 overflow-scroll p-5`} style={{height: "100%"}}>
+            <div className={`p-1 overflow-scroll p-5 border-top`} style={{ height: "100%" }}>
                 <table className="table-responsive table table-hover table-striped table-light">
                     <thead>
-                    <tr className={`fw-bold`}>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Seção Do Produto</th>
-                        <th className={`col-1`} scope="col">Ações</th>
-                    </tr>
+                        <tr className={`fw-bold`}>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Preço</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Seção Do Produto</th>
+                            <th className={`col-1`} scope="col">Ações</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    {renderizarProdutos()}
+                        {renderizarProdutos()}
                     </tbody>
                 </table>
             </div>

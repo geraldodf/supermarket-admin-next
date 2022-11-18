@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
@@ -9,7 +9,7 @@ interface FormularioProps {
 
 }
 
-export default function Formulario({titulo, produtoRecebido}: FormularioProps) {
+export default function Formulario({ titulo, produtoRecebido }: FormularioProps) {
 
     const tiposDosProdutos = {
         "Grãos": 1,
@@ -56,44 +56,44 @@ export default function Formulario({titulo, produtoRecebido}: FormularioProps) {
         <>
             <div className={`rounded-4 p-4 m-5 shadow-lg bg-light`}>
                 <h3 className={`text-center p-3`}>{titulo}</h3>
-                <form className="row g-3" style={{marginRight: "4rem !important"}}>
+                <form className="row g-3" style={{ marginRight: "4rem !important" }}>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Descrição</label>
                         <input type="text" value={produto.descricao}
-                               onChange={e => setProduto({...produto, descricao: e.target.value})}
-                               className="form-control" id="inputDescricao"/>
+                            onChange={e => setProduto({ ...produto, descricao: e.target.value })}
+                            className="form-control" id="inputDescricao" />
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="" className="form-label">Código</label>
                         <input type="text" value={produto.codigo}
-                               onChange={e => setProduto({...produto, codigo: e.target.value})}
-                               className="form-control" id="inputCodigo"/>
+                            onChange={e => setProduto({ ...produto, codigo: e.target.value })}
+                            className="form-control" id="inputCodigo" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Compra</label>
                         <input type="number" value={produto.precoDeCompra}
-                               onChange={e => setProduto({...produto, precoDeCompra: e.target.value})}
-                               className="form-control" id="inputPrecoCompra"/>
+                            onChange={e => setProduto({ ...produto, precoDeCompra: e.target.value })}
+                            className="form-control" id="inputPrecoCompra" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Preço de Venda</label>
                         <input type="number" value={produto.precoDeVenda}
-                               onChange={e => setProduto({...produto, precoDeVenda: e.target.value})}
-                               className="form-control" id="inputPrecoVenda"/>
+                            onChange={e => setProduto({ ...produto, precoDeVenda: e.target.value })}
+                            className="form-control" id="inputPrecoVenda" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Quantidade</label>
                         <input type="number" value={produto.quantidade}
-                               onChange={e => setProduto({...produto, quantidade: e.target.value})}
-                               className="form-control" id="inputQuantidade"/>
+                            onChange={e => setProduto({ ...produto, quantidade: e.target.value })}
+                            className="form-control" id="inputQuantidade" />
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="" className="form-label">Seção</label>
                         <select id="inputState" className="form-select"
-                                onChange={e => setProduto({
-                                    ...produto,
-                                    idTipoDoProduto: tiposDosProdutos[e.target.value]
-                                })}>
+                            onChange={e => setProduto({
+                                ...produto,
+                                idTipoDoProduto: tiposDosProdutos[e.target.value]
+                            })}>
                             <option selected>Selecione a seção do produto</option>
                             <option>Grãos</option>
                             <option>Doces</option>
